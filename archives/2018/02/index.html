@@ -454,6 +454,18 @@
                         <i class="fa fa-fw fa-twitter"></i>Twitter</a>
                   </span>
                 
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/iDouble/" target="_blank" title="博客园">
+                      
+                        <i class="fa fa-fw fa-globe"></i>博客园</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/iDouble/" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
             </div>
           
 
@@ -656,20 +668,20 @@
   
   <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
-    var guest = '';
+    var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item=>{
       return GUEST.indexOf(item)>-1;
     });
     new Valine({
         el: '#comments' ,
-        verify: ,
-        notify: ,
+        verify: false,
+        notify: false,
         appId: 'S6IedlRPag3XSGwG4LxvshoB-gzGzoHsz',
         appKey: 'nfGMM4dVK965Gsr8mDYxl8ee',
-        placeholder: '',
-        avatar:'',
+        placeholder: 'Just go go',
+        avatar:'mm',
         guest_info:guest,
-        pageSize:'' || 10,
+        pageSize:'10' || 10,
     });
   </script>
 

@@ -130,7 +130,7 @@
 <meta property="og:site_name" content="Double">
 <meta property="og:description" content="be interested in everything">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-05T04:19:27.542Z">
+<meta property="og:updated_time" content="2018-02-22T05:20:43.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分类">
 <meta name="twitter:description" content="be interested in everything">
@@ -338,13 +338,6 @@
 
           
 
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
-
         </div>
         
           
@@ -429,6 +422,18 @@
                     <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
                       
                         <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/iDouble/" target="_blank" title="博客园">
+                      
+                        <i class="fa fa-fw fa-globe"></i>博客园</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/iDouble/" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
                   </span>
                 
             </div>
@@ -637,20 +642,20 @@
   
   <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
-    var guest = '';
+    var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item=>{
       return GUEST.indexOf(item)>-1;
     });
     new Valine({
         el: '#comments' ,
-        verify: ,
-        notify: ,
+        verify: false,
+        notify: false,
         appId: 'S6IedlRPag3XSGwG4LxvshoB-gzGzoHsz',
         appKey: 'nfGMM4dVK965Gsr8mDYxl8ee',
-        placeholder: '',
-        avatar:'',
+        placeholder: 'Just go go',
+        avatar:'mm',
         guest_info:guest,
-        pageSize:'' || 10,
+        pageSize:'10' || 10,
     });
   </script>
 
