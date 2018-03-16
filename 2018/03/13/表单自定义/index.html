@@ -123,18 +123,20 @@
 
 
 
-<meta name="description" content="总结一下表单自定义控件，纯粹css的做法">
+<meta name="description" content="总结一下表单自定义控件，利用伪类和伪元素装饰出来的">
 <meta name="keywords" content="表单控件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&lt;b&gt;表单自定义样式&lt;&#x2F;b&gt;">
 <meta property="og:url" content="http://yoursite.com/2018/03/13/表单自定义/index.html">
 <meta property="og:site_name" content="Double">
-<meta property="og:description" content="总结一下表单自定义控件，纯粹css的做法">
+<meta property="og:description" content="总结一下表单自定义控件，利用伪类和伪元素装饰出来的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T11:35:46.056Z">
+<meta property="og:image" content="http://p46v4x0ng.bkt.clouddn.com/%E4%BC%AA%E7%B1%BB.png">
+<meta property="og:updated_time" content="2018-03-16T10:38:01.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&lt;b&gt;表单自定义样式&lt;&#x2F;b&gt;">
-<meta name="twitter:description" content="总结一下表单自定义控件，纯粹css的做法">
+<meta name="twitter:description" content="总结一下表单自定义控件，利用伪类和伪元素装饰出来的">
+<meta name="twitter:image" content="http://p46v4x0ng.bkt.clouddn.com/%E4%BC%AA%E7%B1%BB.png">
 
 
 
@@ -402,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,277字
+                  1,398字
                 </span>
               
 
@@ -427,7 +429,7 @@
       
 
       
-        <p>总结一下表单自定义控件，纯粹css的做法<br><a id="more"></a></p>
+        <p>总结一下表单自定义控件，利用伪类和伪元素装饰出来的<br><a id="more"></a></p>
 <h3 id="css组合选择符"><a href="#css组合选择符" class="headerlink" title="css组合选择符"></a>css组合选择符</h3><p>css组合选择符在自定义表单控件中扮演着连接的作用，便于控制元素样式，css3中有四种组合选择符。</p>
 <blockquote>
 <p><strong>后代选择器</strong> ：以空格分离，选择后代相匹配的元素；#div p 选择的是#div下所有的p元素</p>
@@ -436,11 +438,170 @@
 <p><strong>后续兄弟选择器</strong> ：以波浪线分离，选择所有相邻兄弟元素，都有相同的父级，#div~p 选择的是#div相邻的所有的p元素</p>
 </blockquote>
 <h3 id="伪类和伪元素"><a href="#伪类和伪元素" class="headerlink" title="伪类和伪元素"></a>伪类和伪元素</h3><p><strong>伪类</strong> 通过选择器找到不存在DOM树中的信息以及一些css选择器获得不到的信息，一般用冒号开头</p>
+<p><img src="http://p46v4x0ng.bkt.clouddn.com/%E4%BC%AA%E7%B1%BB.png" alt="伪类"></p>
 <p>常见的伪类</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">anchors伪类                                           </span><br><span class="line">a:link      <span class="comment">//未访问的链接                               </span></span><br><span class="line">a:visited   <span class="comment">//已访问的链接</span></span><br><span class="line">a:hover     <span class="comment">//鼠标滑过的链接</span></span><br><span class="line">a:active    <span class="comment">//已选中的链接</span></span><br><span class="line"></span><br><span class="line">css-伪类</span><br><span class="line">:first-child  <span class="comment">//元素的第一个子元素</span></span><br><span class="line">:last-child   <span class="comment">//元素的最后一个子元素</span></span><br><span class="line">:nth-child(n) <span class="comment">//元素的第n个子元素</span></span><br><span class="line">:first-letter <span class="comment">//常用作文本，选择元素的第一个字母</span></span><br><span class="line">:first-line   <span class="comment">//常用作文本，选择元素的第一行</span></span><br><span class="line">:checked      <span class="comment">//选中的表单元素，比如radio Checkbox option</span></span><br><span class="line">:disabled     <span class="comment">//禁用的表单元素</span></span><br><span class="line">:focused      <span class="comment">//元素输入后具有焦点的元素</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>状态伪类</th>
+<th>基于元素当前状态进行选择</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:link</td>
+<td>未访问的链接</td>
+</tr>
+<tr>
+<td>:visited</td>
+<td>已访问的链接</td>
+</tr>
+<tr>
+<td>:hover</td>
+<td>鼠标触摸状态</td>
+</tr>
+<tr>
+<td>:active</td>
+<td>正在活动链接</td>
+</tr>
+<tr>
+<td>:focus</td>
+<td>选择元素输入后具有焦点</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>结构化伪类</th>
+<th>css3新增选择器，利用DOM树过滤，文档更简洁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:first-child</td>
+<td>第一个元素</td>
+</tr>
+<tr>
+<td>:last-child</td>
+<td>最后一个元素</td>
+</tr>
+<tr>
+<td>:not(选择器)</td>
+<td>选择以外的元素</td>
+</tr>
+<tr>
+<td>:nth-child(n)</td>
+<td>第n个元素</td>
+</tr>
+<tr>
+<td>:only-child</td>
+<td>只有一个子元素且是当前元素的元素</td>
+</tr>
+<tr>
+<td>:target</td>
+<td>选择当前活动#news元素</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>表单相关</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:disabled</td>
+<td>禁用表单元素</td>
+</tr>
+<tr>
+<td>:enabled</td>
+<td>没有禁用的表单元素</td>
+</tr>
+<tr>
+<td>:in-range</td>
+<td>指定区域的元素</td>
+</tr>
+<tr>
+<td>:valid</td>
+<td>有效条件验证合理的元素</td>
+</tr>
+<tr>
+<td>:invalid</td>
+<td>条件验证错误的元素</td>
+</tr>
+<tr>
+<td>:required</td>
+<td>设置required的元素</td>
+</tr>
+<tr>
+<td>:optional</td>
+<td>设置optional的元素</td>
+</tr>
+<tr>
+<td>:read-only</td>
+<td>设置readonly的元素</td>
+</tr>
+<tr>
+<td>:read-write</td>
+<td>处于编辑状态的元素</td>
+</tr>
+<tr>
+<td>:checked</td>
+<td>被选中的元素</td>
+</tr>
+<tr>
+<td>:empty</td>
+<td>没有子元素的元素</td>
+</tr>
+<tr>
+<td>:default</td>
+<td>默认选中的元素</td>
+</tr>
+</tbody>
+</table>
 <p><strong>伪元素</strong> 在DOM树中创建一些抽象的元素，不存在与文档语言中，css为区分伪类和伪元素，伪元素为::</p>
-<p>常见的伪元素有</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">::before 作为元素的第一个子节点插入DOM中</span><br><span class="line">::after 作为元素的左右一个子节点插入DOM中  <span class="comment">//常常与content相匹配生成内容，这里content有点意思，后面详细说</span></span><br></pre></td></tr></table></figure>
+<p>常见的伪元素</p>
+<table>
+<thead>
+<tr>
+<th>伪元素</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>::before</td>
+<td>常常与content相联系，插入第一个子元素</td>
+</tr>
+<tr>
+<td>::after</td>
+<td>常常与content相联系，插入最后一个子元素</td>
+</tr>
+<tr>
+<td>::first-letter</td>
+<td>第一个字母</td>
+</tr>
+<tr>
+<td>::first-line</td>
+<td>第一行</td>
+</tr>
+<tr>
+<td>::selection</td>
+<td>被元素选中或处于高亮的部分</td>
+</tr>
+<tr>
+<td>::placeholder</td>
+<td>设置了placeholder的元素</td>
+</tr>
+<tr>
+<td>::backdrop</td>
+<td>改变全屏模式下的背景颜色，实验中</td>
+</tr>
+</tbody>
+</table>
 <h3 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a>label标签</h3><p>此标签表示用户界面中项目的标题，是内联元素inline，通常关联表单控件，或者放入其中</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//直接嵌套型</span></span><br><span class="line">&lt;label&gt;click &lt;input type=<span class="string">'text'</span> id=<span class="string">'user'</span> name=<span class="string">'username'</span>&gt;&lt;/label&gt;</span><br><span class="line"><span class="comment">//for绑定id型</span></span><br><span class="line">&lt;label <span class="keyword">for</span>=<span class="string">'user'</span>&gt;click&lt;<span class="regexp">/label&gt;   </span></span><br><span class="line"><span class="regexp">&lt;input type='text' id='user' name='username'&gt;</span></span><br></pre></td></tr></table></figure>
 <p>除了绑定这些控件，还搭配选择组optgroup</p>
@@ -623,8 +784,8 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index-1.html">
-                  <span class="site-state-item-count">4</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -738,7 +899,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共3.7k字</span>
+  <span class="post-count">博客全站共3.8k字</span>
 </div>
         
 
