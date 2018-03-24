@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|微软雅黑:300,300italic,400,400italic,700,700italic|Inconsolata:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="离线缓存和储存," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="HTML新增的离线储存和缓存相关的内容">
+<meta name="keywords" content="离线缓存和储存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;b&gt;离线应用和客户端缓存&lt;&#x2F;b&gt;">
+<meta property="og:url" content="http://yoursite.com/2018/03/24/离线应用和客户端缓存/index.html">
+<meta property="og:site_name" content="Double">
+<meta property="og:description" content="HTML新增的离线储存和缓存相关的内容">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p46v4x0ng.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG">
+<meta property="og:updated_time" content="2018-03-24T07:18:01.295Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&lt;b&gt;离线应用和客户端缓存&lt;&#x2F;b&gt;">
+<meta name="twitter:description" content="HTML新增的离线储存和缓存相关的内容">
+<meta name="twitter:image" content="http://p46v4x0ng.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/24/离线应用和客户端缓存/"/>
+
+
+
+
+
+  <title><b>离线应用和客户端缓存</b> | Double</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Double</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/24/离线应用和客户端缓存/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Double">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Double">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"><b>离线应用和客户端缓存</b></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T15:15:30+08:00">
+                2018-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html/" itemprop="url" rel="index">
+                    <span itemprop="name">html</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/03/24/离线应用和客户端缓存/" class="leancloud_visitors" data-flag-title="<b>离线应用和客户端缓存</b>">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">浏览次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>次</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,672字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>HTML新增的离线储存和缓存相关的内容<br><a id="more"></a></p>
+<h3 id="离线检测"><a href="#离线检测" class="headerlink" title="离线检测"></a>离线检测</h3><p>为了检测设备是否在线，HTML5定义navigator.onLine属性，是个布尔值，浏览器有差别；当网络发生变化时，会触发两个事件，online和offline</p>
+<h3 id="应用缓存"><a href="#应用缓存" class="headerlink" title="应用缓存"></a>应用缓存</h3><p>所谓应用缓存即application cache是专门为开发离线web应用设定，APPcache从浏览器缓存中分出一块缓存区域用来保存数据，使用一个描述文件manifest file，列出所需要的下载和缓存的资源，比如<code>&lt;html manifest=&quot;sample.appache&quot;&gt;&lt;/html&gt;</code></p>
+<p><img src="http://p46v4x0ng.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG" alt=""></p>
+<p>此api的核心为applicationCache对象，有status属性，表示应用缓存的状态，状态改变触发相应的事件</p>
+<p><strong>状态</strong></p>
+<ul>
+<li>0（UNCACHED） : 无缓存， 即没有与页面相关的应用缓存</li>
+<li>1（IDLE） : 闲置，即应用缓存未得到更新</li>
+<li>2（CHECKING） : 检查中，即正在下载描述文件并检查更新</li>
+<li>3（DOWNLOADING） : 下载中，即应用缓存正在下载描述文件中指定的资源</li>
+<li>4（UPDATEREADY） : 更新完成，所有资源都已下载完毕</li>
+</ul>
+<p><strong>事件</strong> </p>
+<table>
+<thead>
+<tr>
+<th>checking</th>
+<th>checking事件是整个事件序列中的第一个，表示浏览器在首次下载缓存，或者在检查缓存是否有更新</th>
+<th>noupdate, downloading, obsolete, error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>noupdate</td>
+<td>noupdate事件是整个事件序列的最后一个，用来表示缓存没有更新</td>
+<td>无</td>
+</tr>
+<tr>
+<td>downloading</td>
+<td>浏览器正在首次下载menifest中列出的离线资源，或者浏览器发现缓存有更新，并且正在下载该更新</td>
+<td>progress, error, cached, updateready</td>
+</tr>
+<tr>
+<td>progress</td>
+<td>浏览器正在下载menifest中的离线资源，其中progressEvent对象中total表示需要下载的总资源的数量，loaded表示已经处理过的资源数量</td>
+<td>progress, error, cached, updateready</td>
+</tr>
+<tr>
+<td>cached</td>
+<td>浏览器已经成功下载了menifest中的离线资源，应用已经被缓存</td>
+<td>无</td>
+</tr>
+<tr>
+<td>updateready</td>
+<td>缓存有更新并且更新已经下载完成，这是可以使用ApplicationCache.swapCache()来将应用切换到最新缓存</td>
+<td>无</td>
+</tr>
+<tr>
+<td>obsolete</td>
+<td>应用已经有离线缓存了，但menifest文件无法加载成功，则删除现有离线缓存</td>
+<td>无</td>
+</tr>
+<tr>
+<td>error</td>
+<td>发生错误的情况比较多：可能是首次视图缓存离线文件时，发现menifest文件返回404；也可能是下载缓存过程中发生了fatal错误，比如超出了最大可用存储空间的限制，发现了header为Cache-Control: no-store的资源；还有可能是缓存在更新过程中发现menifest文件发生了变化</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>manifest</strong> </p>
+<p>HTML5的离线存储是基于一个新建的.appcache文件的，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。</p>
+<p>在开始之前要先了解下manifest（即.appcache文件），上面的解析清单要怎么写。</p>
+<p>manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。<br>manifest 文件可分为三个部分：</p>
+<ul>
+<li>CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存</li>
+<li>NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存</li>
+<li>FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）</li>
+</ul>
+<p>在线的情况下,用户代理每次访问页面，都会去读一次manifest.如果发现其改变, 则重新加载全部清单中的资源。</p>
+<p>看一个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">CACHE MANIFEST</span><br><span class="line">#version 1.0</span><br><span class="line"></span><br><span class="line">CACHE:</span><br><span class="line">/theme.css</span><br><span class="line">/logo.gif</span><br><span class="line">/main.js</span><br><span class="line"></span><br><span class="line">NETWORK:</span><br><span class="line">http://xxx/NotOffline</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line">FALLBACK:</span><br><span class="line">404.html</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>真正运行或者测试离线Web应用程序的时候，需要对服务器进行配置，让服务器支持text/cache-manifest这个MIME类型—–在HTML5中规定manifest文件的MIME类型是text/cache-manifest</p>
+<p>例如对Apache服务器进行配置的时候，需要找到<code>{apache_home}/conf/mime.types</code>这个文件，并在文件最后添加如下的一行代码。</p>
+<p><code>text/cache-manifest manifest</code></p>
+<p>在HTML页面引用manifest文件</p>
+<p><code>&lt;html manifest=&quot;sample.appcache&quot;</code></p>
+<ul>
+<li>第一行，CACHE MANIFEST，是必需的：</li>
+<li>上面的 manifest 文件列出了三个资源：一个 CSS 文件，一个 GIF 图像，以及一个 JavaScript 文件。当 manifest 文件加载后，浏览器会从网站的根目录下载这三个文件。然后，无论用户何时与因特网断开连接，这些资源依然是可用的。</li>
+<li>NETWORK:白名单，使用通配符”*”. 则会进入白名单的open状态. 这种状态下.所有不在相关Cache区域出现的url都默认使用HTTP相关缓存头策略. 可以使用星号来指示所有其他资源/文件都需要因特网连接。<br>下面的 NETWORK 小节规定文件 “login.asp” 永远不会被缓存，且离线时是不可用的：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NETWORK:</span><br><span class="line">login.asp</span><br></pre></td></tr></table></figure>
+<ul>
+<li>FALLBACK：不能在线访问时使用备用资源文件。</li>
+</ul>
+<p><strong>缺点</strong> </p>
+<p>我们知道每次使用离线应用时，在有网络连接的情况下，浏览器都会逐字节的检查menifest文件是否有更新，而当menifest文件有更新时，就会重新下载menifest文件中列出的所有资源，资源下载成功后会触发updateready事件。这时离线应用本身并不会立即更新，而会在下次访问时才更新，这就是我们所说的二次更新。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;  </span><br><span class="line">    <span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'updateready'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; </span><br><span class="line">        <span class="comment">//缓存更新完毕 </span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">window</span>.applicationCache.status == <span class="built_in">window</span>.applicationCache.UPDATEREADY) &#123;  </span><br><span class="line">            <span class="comment">//切换为最新缓存</span></span><br><span class="line">            <span class="built_in">window</span>.applicationCache.swapCache();  </span><br><span class="line">            <span class="keyword">if</span> (confirm(<span class="string">'新版本已经更新完成，是否重新加载?'</span>)) &#123;  </span><br><span class="line">                <span class="built_in">window</span>.location.reload();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;, <span class="literal">false</span>);  </span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>超出大小限制的问题:首次下载缓存时超出大小，所有资源都不会缓存，而是请求网络，应用功能正常。<br>更新资源后超出大小，缓存不会更新，应用无法更新。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.applicationCache.addEventListener(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.reason == <span class="string">'quota'</span>)&#123;</span><br><span class="line">        <span class="comment">//超出离线缓存大小限制</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果有修改的资源文件，必须通过修改manifest文件来属性被缓存的文件列表，只要manifest文件修改，那么所有缓存文件都会被重新拉取一次。更新是全局性的，无法单独更新某个无法单独更新某个文件。</li>
+<li>对于链接参数变化是敏感的，任何一个参数修改都会被更新缓存（重复婚车含参页面）index.html和index.html?renew=1会被认为是不同的文件，分别缓存。</li>
+</ul>
+<h3 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h3><p>直接在客户端储存数据，用户的信息</p>
+<h4 id="cookie存储"><a href="#cookie存储" class="headerlink" title="cookie存储"></a>cookie存储</h4><p>最初用于存储会话信息，可以用来储存一些用户信息，是一对键值对，经过URL编码</p>
+<p><strong>特点</strong></p>
+<ul>
+<li>绑定在特定的域名之下，确保储存在cookie的信息只能让批准的接受者访问</li>
+<li>cookie的数量有限，大小有限4k，超过则清除旧的</li>
+<li>http请求头总会带着存储信息，不安全</li>
+</ul>
+<p><strong>构成</strong></p>
+<p><em>名称</em>    唯一确定的名称，不分大小写，经过URL编码</p>
+<p><em>值</em>        存储在cookie中的字符串，经过URL编码</p>
+<p><em>域</em>        cookie对于哪个域是有效的，所有向该域发送的请求都会包含cookie信息</p>
+<p><em>路径</em>    对于指定域中的哪个路径，应向服务器发送cookie</p>
+<p><em>失效时间</em>   表示cookie何时应被删除的时间线，是GMT格式</p>
+<p><em>安全标示</em>   布尔值，指定后，cookie只有在ssl链接时才能发送到服务器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> ok</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Set-Cookie: name=value;expires=Mon,<span class="number">22</span>-Jan-<span class="number">07</span> <span class="number">07</span>:<span class="number">10</span>:<span class="number">24</span> GMT; domain=.wro.com; path=/; secure</span><br></pre></td></tr></table></figure>
+<p>只有键对值才会发送给服务器指示，其他事服务器对浏览器的</p>
+<p><strong>javascript中的cookie</strong></p>
+<p>通过document.cookie来获取，返回的是cookie的字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name1=value1;name2=value2;        <span class="comment">//所有的名字和值都经过URL编码   所以要decodeURIComponent解码</span></span><br></pre></td></tr></table></figure>
+<p>封装后的cookie的创建，读取，删除功能</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CookieUtil=&#123;</span><br><span class="line">	     <span class="comment">//获得指定cookie</span></span><br><span class="line">	     get:<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;    <span class="comment">//必须经过解码</span></span><br><span class="line">	     	  <span class="keyword">var</span> cookieName=<span class="built_in">encodeURIComponent</span>(name)+<span class="string">"="</span>,</span><br><span class="line">	     	      cookieStart=<span class="built_in">document</span>.cookie.indexOf(cookieName),</span><br><span class="line">	     	      cookieValue=<span class="literal">null</span>;</span><br><span class="line">	     	  <span class="keyword">if</span>(cookieStart&gt;<span class="number">-1</span>)&#123;</span><br><span class="line">	     	  	   <span class="keyword">var</span> cookieEnd=<span class="built_in">document</span>.cookie.indexOf(<span class="string">";"</span>,cookieStart)</span><br><span class="line">	     	  	   <span class="keyword">if</span>(cookieEnd==<span class="number">-1</span>)&#123;</span><br><span class="line">	     	  	   	   cookieEnd=<span class="built_in">document</span>.cookie.length</span><br><span class="line">	     	  	   &#125;</span><br><span class="line">	     	  	   cookieValue=<span class="built_in">decodeURIComponent</span>(<span class="built_in">document</span>.cookie.substring(cookieStart+cookieName.length,cookieEnd))</span><br><span class="line">	     	  &#125;</span><br><span class="line">	     	  <span class="keyword">return</span> cookieValue</span><br><span class="line">	     &#125;,</span><br><span class="line">      <span class="comment">//设置cookie</span></span><br><span class="line">	     set:<span class="function"><span class="keyword">function</span>(<span class="params">name,value,expires,path,domain,secure</span>)</span>&#123;</span><br><span class="line">	     	   <span class="keyword">var</span> cookieText=<span class="built_in">encodeURIComponent</span>(name)+<span class="string">"="</span>+</span><br><span class="line">	     	                  <span class="built_in">encodeURIComponent</span>(value)</span><br><span class="line">	     	   <span class="keyword">if</span>(expires <span class="keyword">instanceof</span> <span class="built_in">Date</span>)&#123;</span><br><span class="line">	     	   	      cookieText+=<span class="string">";expires="</span>+expires.toGMTString()</span><br><span class="line">	     	   &#125;</span><br><span class="line">	     	   <span class="keyword">if</span>(path)&#123;</span><br><span class="line">	     	   	      cookieText+=<span class="string">";path="</span>+path</span><br><span class="line">	     	   &#125;</span><br><span class="line">	     	   <span class="keyword">if</span>(domain)&#123;</span><br><span class="line">	     	   	      cookieText+=<span class="string">";domain="</span>+domain</span><br><span class="line">	     	   &#125;</span><br><span class="line">	     	   <span class="keyword">if</span>(secure)&#123;</span><br><span class="line">	     	   	      cookieText+=<span class="string">";secure"</span></span><br><span class="line">	     	   &#125;</span><br><span class="line">	     &#125;,</span><br><span class="line">      <span class="comment">//删除cookie</span></span><br><span class="line">	     unset:<span class="function"><span class="keyword">function</span>(<span class="params">name,path,domain,secure</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.set(name,<span class="string">""</span>,<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">0</span>),path,domain,secure)</span><br><span class="line">	     &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CookieUtil.set(<span class="string">"name"</span>,<span class="string">"double"</span>,<span class="string">"/books/projs"</span>,<span class="string">"www.baidu.com"</span>,<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"January 1,2010"</span>))</span><br><span class="line">CookieUtil.get(<span class="string">"double"</span>)</span><br><span class="line">CookieUtil.unset(<span class="string">"double"</span>,<span class="string">"/books/projs/"</span>,<span class="string">"www.baidu.com"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="web存储机制"><a href="#web存储机制" class="headerlink" title="web存储机制"></a>web存储机制</h4><p>克服cookie带来的一系列限制</p>
+<ul>
+<li>提供cookie之外的存储会话的途径</li>
+<li>提供一种存储大量可跨会话的数据机制</li>
+<li>最大容量5M  API简单易用</li>
+</ul>
+<p><strong>存储内容</strong></p>
+<p>数据(序列化)、json数据、图片、脚本、样式文件 </p>
+<p><strong>storage类型</strong>  </p>
+<blockquote>
+<p>clear()  删除所有值</p>
+<p>getItem(name)   根据指定name获得对应值</p>
+<p>key(index)   获得index位置处的值的名字</p>
+<p>removeItem(name)  删除由name指定的名值儿</p>
+<p>setItem(name,value)  为指定的name设置一个对应的值</p>
+</blockquote>
+<p><strong>sessionStorage对象</strong></p>
+<p>数据只保存某个会话，即浏览器关闭对象消失，本地运行不可用</p>
+<p>主要用于会话的小段数据的存储，跨域则用localStorage对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">设置</span><br><span class="line">sessionStorage.setItem(&quot;name&quot;,&quot;double)</span><br><span class="line">sessionStorage.book(&quot;life of person&quot;)</span><br><span class="line">读取</span><br><span class="line">var name=sessionStorage.getItem(&quot;name&quot;)</span><br><span class="line">var book=sessionStorage.book</span><br></pre></td></tr></table></figure>
+<p>利用length和key来迭代sessionStorage中的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;sessionStorage.length;i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> key=sessionStorage.key(i)</span><br><span class="line">        <span class="keyword">var</span> value=sessionStorage.getItem(key)</span><br><span class="line">        <span class="built_in">console</span>.log(key+<span class="string">"="</span>+value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>删除sessionStorage某个值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> sessionStorage.name         <span class="comment">//直接delete删除</span></span><br><span class="line">sessionStorage.removeItem(<span class="string">"book"</span>)     <span class="comment">//利用removeItem方法</span></span><br></pre></td></tr></table></figure>
+<p><strong>localStorage对象</strong> </p>
+<p>属性和方法是一样的</p>
+<blockquote>
+<p>localStorage无过期时间，除非自己清除</p>
+</blockquote>
+<p><strong>使用注意事项</strong></p>
+<ol>
+<li>浏览器的支持情况</li>
+<li>写入数据时，需要异常处理，避免超出容量报错</li>
+<li>避免敏感信息存入localStorage</li>
+<li>key的唯一性</li>
+</ol>
+<p><strong>使用限制</strong></p>
+<ul>
+<li>存储更新策略，过期控制</li>
+<li>子域名之间不能共享储存数据</li>
+<li>超出存储大小，利用算法</li>
+<li>server端如何取得</li>
+</ul>
+<p>当然以上的限制，也可通过间接的方式跨越</p>
+<p><strong>使用场景</strong> </p>
+<ol>
+<li>利用本地数据，减少网络传输</li>
+<li>弱网络环境下，高延迟，低带宽，尽量把数据本地化</li>
+</ol>
+<h4 id="数据库IndexedDB"><a href="#数据库IndexedDB" class="headerlink" title="数据库IndexedDB"></a>数据库IndexedDB</h4><p>有点鸡肋，不如MySQL</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/weixin.jpg" alt="Double wechat" style="width: 200px; max-width: 100%;"/>
+    <div>关注我的公众号，一起分享进步</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:20px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/离线缓存和储存/" rel="tag"><i class="fa fa-tag"></i> 离线缓存和储存</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/17/正则表达式基础知识/" rel="next" title="<b>正则表达式基础知识，持续更新……</b>">
+                <i class="fa fa-chevron-left"></i> <b>正则表达式基础知识，持续更新……</b>
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/pic.jpg"
+                alt="Double" />
+            
+              <p class="site-author-name" itemprop="name">Double</p>
+              <p class="site-description motion-element" itemprop="description">becoming a life-long learner</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index-1.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lilishuangshuang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/iDouble/" target="_blank" title="博客园">
+                      
+                        <i class="fa fa-fw fa-spinner"></i>博客园</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/feng-liu-shao-nian-36/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-edit"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#离线检测"><span class="nav-number">1.</span> <span class="nav-text">离线检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用缓存"><span class="nav-number">2.</span> <span class="nav-text">应用缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据存储"><span class="nav-number">3.</span> <span class="nav-text">数据存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie存储"><span class="nav-number">3.1.</span> <span class="nav-text">cookie存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web存储机制"><span class="nav-number">3.2.</span> <span class="nav-text">web存储机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库IndexedDB"><span class="nav-number">3.3.</span> <span class="nav-text">数据库IndexedDB</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Double</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共10.1k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("S6IedlRPag3XSGwG4LxvshoB-gzGzoHsz", "nfGMM4dVK965Gsr8mDYxl8ee");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
