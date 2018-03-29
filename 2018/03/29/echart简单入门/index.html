@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|微软雅黑:300,300italic,400,400italic,700,700italic|Inconsolata:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据可视化," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="echart，百度出品的可视化图表库，基于html5 canvas的纯javascript的作品素装饰出来的">
+<meta name="keywords" content="数据可视化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;b&gt;echart简单入门&lt;&#x2F;b&gt;">
+<meta property="og:url" content="http://yoursite.com/2018/03/29/echart简单入门/index.html">
+<meta property="og:site_name" content="Double">
+<meta property="og:description" content="echart，百度出品的可视化图表库，基于html5 canvas的纯javascript的作品素装饰出来的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p46v4x0ng.bkt.clouddn.com/%E7%AE%80%E5%8D%95%E7%9B%B4%E6%96%B9%E5%9B%BE%20%283%29.png">
+<meta property="og:image" content="http://p46v4x0ng.bkt.clouddn.com/echarts.png">
+<meta property="og:updated_time" content="2018-03-29T15:19:17.519Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&lt;b&gt;echart简单入门&lt;&#x2F;b&gt;">
+<meta name="twitter:description" content="echart，百度出品的可视化图表库，基于html5 canvas的纯javascript的作品素装饰出来的">
+<meta name="twitter:image" content="http://p46v4x0ng.bkt.clouddn.com/%E7%AE%80%E5%8D%95%E7%9B%B4%E6%96%B9%E5%9B%BE%20%283%29.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/29/echart简单入门/"/>
+
+
+
+
+
+  <title><b>echart简单入门</b> | Double</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Double</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/29/echart简单入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Double">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Double">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"><b>echart简单入门</b></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-29T23:18:22+08:00">
+                2018-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/echart/" itemprop="url" rel="index">
+                    <span itemprop="name">echart</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/03/29/echart简单入门/" class="leancloud_visitors" data-flag-title="<b>echart简单入门</b>">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">浏览次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>次</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,284字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>echart，百度出品的可视化图表库，基于html5 canvas的纯javascript的作品素装饰出来的<br><a id="more"></a></p>
+<h3 id="各个元素的配置"><a href="#各个元素的配置" class="headerlink" title="各个元素的配置"></a>各个元素的配置</h3><p><strong>两个方法</strong></p>
+<blockquote>
+<p>通过echart.init()方法直接获取容器</p>
+<p>通过echart.setOption()方法直接生成配置项</p>
+</blockquote>
+<p><strong>title   标题组件</strong></p>
+<blockquote>
+<p>分为主标题text和副标题subtext</p>
+<p>超链接直接link/sublink target/subtarget</p>
+<p>内边距padding   默认为5 接受数组设定上右下左边距</p>
+<p>主副标题间距  itemGap       组件所有图形的z值  z</p>
+<p>grid组件的方位距离  left、right、top、bottom</p>
+<p>标题背景，边框颜色 backgroundColor  borderColor   borderWidth   borderRadius</p>
+<p>图形阴影的模糊大小 shadowBlur shadowOffsetX shadowOffsetY</p>
+<p>文本设置 textStyle/subtextStyle  很多调整属性fontSize fontWeight fontFamily等等</p>
+</blockquote>
+<p><strong>legend  图例组件</strong></p>
+<blockquote>
+<p>图例类型 type 分为plain/scroll</p>
+<p>图例方位距离 left、right、top、bottom</p>
+<p>图例长宽 width height</p>
+<p>图例列表的朝向和对齐 orient分为horizontal/vertical   align</p>
+<p>图例间隔 itemGap</p>
+<p>图例的数据数组 data[i]</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;data:[&#123;</span><br><span class="line">&gt;    name:<span class="string">"销量"</span>,</span><br><span class="line">&gt;    icon:<span class="string">"circle/rect/roundRect/triangle/diamond/pin/arrow"</span>,</span><br><span class="line">&gt;    textStyle:&#123;&#125;  <span class="comment">//很多属性了</span></span><br><span class="line">&gt;&#125;]</span><br><span class="line">&gt;<span class="comment">//无需设置则直接</span></span><br><span class="line">&gt;data:[<span class="string">"销量"</span>,<span class="string">"进口量"</span>,<span class="string">"利润"</span>]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<p><strong>grid 直角坐标系</strong></p>
+<p><strong>xAxis  x轴     YAxis   y轴</strong></p>
+<blockquote>
+<p>x轴所在的grid的索引   gridIndex</p>
+<p>x轴的位置  position 可选top、bottom</p>
+<p>坐标轴类型 type 可选 value数值轴、category类目轴和data设置、time时间轴、log对数轴</p>
+<p>坐标轴名称 name     nameLocation：start、middle、end  当然这里还有很多，见官方文档</p>
+<p>坐标轴线相关设置 axisLine            坐标轴刻度相关设置axisTick</p>
+<p>坐标轴刻度标签axisLabel</p>
+<p>类目数据data针对category</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;data:[&apos;周一&apos;,&apos;周二&apos;,&apos;周三&apos;]</span><br><span class="line">&gt;data:[&#123;</span><br><span class="line">&gt;    value:&apos;周一&apos;,</span><br><span class="line">&gt;    textStyle:&#123;</span><br><span class="line">&gt;        fontSize:20,</span><br><span class="line">&gt;        color:&apos;red&apos;</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;&#125;]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>polar 极坐标 用于散点图和折线图</strong></p>
+<blockquote>
+<p>极坐标的中心坐标  cneter[400,300]</p>
+<p>极坐标的半径 radius[内半径，外半径]</p>
+</blockquote>
+<p><strong>radiusAxis  angleAxis</strong></p>
+<blockquote>
+<p>和XAxis的属性差不多</p>
+</blockquote>
+<p><strong>radar  用于雷达图</strong></p>
+<blockquote>
+<p>每个轴都是一个单独的维度，可以通过name axisLine  axisTick axisLabel  splitLine  splitArea来配置</p>
+<p>第一个指示器轴的角度  startAngle</p>
+<p>雷达图的绘制 shape 分为 polygon/circle</p>
+<p>雷达图的指示器 indicator 指定多个维度</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;indicator: [</span><br><span class="line">&gt;   &#123; <span class="attr">name</span>: <span class="string">'销售（sales）'</span>, <span class="attr">max</span>: <span class="number">6500</span>&#125;,</span><br><span class="line">&gt;   &#123; <span class="attr">name</span>: <span class="string">'管理（Administration）'</span>, <span class="attr">max</span>: <span class="number">16000</span>, <span class="attr">color</span>: <span class="string">'red'</span>&#125;, <span class="comment">// 标签设置为红色</span></span><br><span class="line">&gt;   &#123; <span class="attr">name</span>: <span class="string">'信息技术（Information Techology）'</span>, <span class="attr">max</span>: <span class="number">30000</span>&#125;]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<p><strong>tooltip 提示框组件</strong> </p>
+<blockquote>
+<p>设置在全局即tooltip</p>
+<p>设置在坐标系即grid.tooltip  polar.tooltip  single.tooltip  series.tooltip  series.data.tooltip</p>
+<p>是否显示 show</p>
+<p>触发类型 trigger  分为item/axis</p>
+<p>触发条件 triggerOn 分为Mousemove/click/mousemove|click/none</p>
+</blockquote>
+<p><strong>geo 地理坐标组件</strong></p>
+<blockquote>
+<p>支持散点图，线集</p>
+</blockquote>
+<p><strong>parallel  平行坐标系</strong></p>
+<blockquote>
+<p>用于高维数据</p>
+</blockquote>
+<p><strong>toolbox  工具栏</strong></p>
+<blockquote>
+<p>导出图片，数据视图，动态类型切换、数据区域缩放，重置</p>
+<p>show   orient   itemSize  itemGap  showTitle </p>
+<p>各工具配置项   feature</p>
+<p>saveAsImage    restore    dataView  dataZoom  magicType(type:line/bar/stack/tiled)  brush  </p>
+<p>补充brush</p>
+<p>type 有 rect   polygon   lineX    lineY    keep   clear   </p>
+</blockquote>
+<p><strong>brush  区域选择组件</strong></p>
+<blockquote>
+<p>选择图中一部分数据，向用户展示被选中数据或计算结果</p>
+<p>按钮 toolbox    brushLink  不同系间的联动</p>
+</blockquote>
+<p><strong>series   系列列表</strong></p>
+<blockquote>
+<p>通过设置type即可决定图表类型</p>
+<p>line  折线     bar 柱状    pie  饼图   scatter  散点图    effectScatter   带有动画的散点图</p>
+<p>radar  雷达图    tree   树状图   sunburst  多层的环形图   boxplot 箱型图   candlestick  k线图</p>
+<p>hotmap  热力图   map  地理区域数据   parallel  平行坐标系    lines   航线线路可视化   graph  节点间的关系</p>
+<p>funnel  漏斗图    gauge  仪表图   pictorialBar   象形柱图   themeRiver  主题河流    custom 自定义系列</p>
+</blockquote>
+<h3 id="基本图表实例"><a href="#基本图表实例" class="headerlink" title="基本图表实例"></a>基本图表实例</h3><p><strong>折线图和柱状图</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"one"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基于DOM 初始化echart实例</span></span><br><span class="line"><span class="keyword">var</span> myChart=echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'one'</span>))</span><br><span class="line"><span class="comment">//指定配置</span></span><br><span class="line"><span class="keyword">var</span> option=&#123;</span><br><span class="line">     title:&#123;</span><br><span class="line">         show:<span class="literal">true</span>,</span><br><span class="line">         <span class="comment">//主标题样式</span></span><br><span class="line">         text:<span class="string">'简单直方图'</span>,</span><br><span class="line">         link:<span class="string">'http://www.baidu.com'</span>,</span><br><span class="line">         target:<span class="string">""</span>,</span><br><span class="line">         textStyle:&#123;</span><br><span class="line">             color:<span class="string">"green"</span>,</span><br><span class="line">             fontStyle:<span class="string">"normal"</span>,</span><br><span class="line">             fontFamily:<span class="string">"Microsoft YaHei"</span>,</span><br><span class="line">             fontSize:<span class="number">20</span>,</span><br><span class="line">             align:<span class="string">'center'</span></span><br><span class="line">         &#125;,</span><br><span class="line">         <span class="comment">//副标题样式</span></span><br><span class="line">         subtext:<span class="string">'这是个例子'</span>,</span><br><span class="line">         sublink:<span class="string">""</span>,</span><br><span class="line">         subtarget:<span class="string">""</span>,</span><br><span class="line">         subtextStyle:&#123;</span><br><span class="line">             <span class="comment">//同理</span></span><br><span class="line">         &#125;,</span><br><span class="line">         padding:[<span class="number">5</span>,<span class="number">45</span>],</span><br><span class="line">         borderColor:<span class="string">'red'</span></span><br><span class="line">     &#125;,</span><br><span class="line">     tooltip:&#123;&#125;,</span><br><span class="line">     <span class="comment">//图例</span></span><br><span class="line">     legend:&#123;</span><br><span class="line">         type:<span class="string">'plain'</span>,</span><br><span class="line">         data:[&#123;</span><br><span class="line">          name:<span class="string">"销量"</span>,</span><br><span class="line">          icon:<span class="string">'rect'</span>,</span><br><span class="line">          textStyle:&#123;</span><br><span class="line">              color:<span class="string">'red'</span></span><br><span class="line">          &#125;</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">          name:<span class="string">"进货量"</span>,</span><br><span class="line">          icon:<span class="string">'rect'</span>,</span><br><span class="line">          textStyle:&#123;</span><br><span class="line">              color:<span class="string">'red'</span></span><br><span class="line">          &#125;</span><br><span class="line">       &#125;]</span><br><span class="line">     &#125;,</span><br><span class="line">     xAxis:&#123;</span><br><span class="line">         type:<span class="string">"category"</span>,</span><br><span class="line">         name:<span class="string">"销量"</span>,</span><br><span class="line">         nameLocation:<span class="string">"end"</span>,</span><br><span class="line">         data:[<span class="string">"衬衫"</span>,<span class="string">"羊毛衫"</span>,<span class="string">"雪纺衫"</span>,<span class="string">"裤子"</span>,<span class="string">"高跟鞋"</span>,<span class="string">"袜子"</span>]</span><br><span class="line">     &#125;,</span><br><span class="line">     yAxis:&#123;&#125;,</span><br><span class="line">     series:[&#123;</span><br><span class="line">          name:<span class="string">"销量"</span>,</span><br><span class="line">          type:<span class="string">"line"</span>,</span><br><span class="line">          data:[<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>]</span><br><span class="line">     &#125;,&#123;</span><br><span class="line">          name:<span class="string">"进货量"</span>,</span><br><span class="line">          type:<span class="string">"bar"</span>,</span><br><span class="line">          data:[<span class="number">5</span>,<span class="number">34</span>,<span class="number">2</span>,<span class="number">43</span>,<span class="number">54</span>,<span class="number">63</span>],</span><br><span class="line">          color:<span class="string">"green"</span></span><br><span class="line">     &#125;],</span><br><span class="line">     <span class="comment">//工具栏</span></span><br><span class="line">     toolbox:&#123;</span><br><span class="line">         <span class="comment">// orient:"vertical",</span></span><br><span class="line">         feature:&#123;</span><br><span class="line">                 dataView:&#123;<span class="attr">show</span>:<span class="literal">true</span>,<span class="attr">readOnly</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">             restore:&#123;<span class="attr">show</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">             saveAsImage:&#123;<span class="attr">show</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">             dataZoom:&#123;<span class="attr">show</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">             magicType:&#123;<span class="attr">show</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">             <span class="comment">// brush:&#123;show:true&#125;</span></span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用指定的配置项和数据显示图表</span></span><br><span class="line">myChart.setOption(option)</span><br></pre></td></tr></table></figure>
+<p>得到结果</p>
+<p><img src="http://p46v4x0ng.bkt.clouddn.com/%E7%AE%80%E5%8D%95%E7%9B%B4%E6%96%B9%E5%9B%BE%20%283%29.png" alt=""></p>
+<p><strong>饼图</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//饼图</span></span><br><span class="line">           <span class="keyword">var</span> myCharts=echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'two'</span>))</span><br><span class="line">           myCharts.setOption(&#123;</span><br><span class="line">           	      series:[&#123;</span><br><span class="line">           	      	  name:<span class="string">"访问来源"</span>,</span><br><span class="line">           	      	  type:<span class="string">"pie"</span>,</span><br><span class="line">           	      	  radius:<span class="string">"55%"</span>,</span><br><span class="line">           	      	  roseType:<span class="string">'angle'</span>,</span><br><span class="line">           	      	  itemStyle:&#123;</span><br><span class="line">                         emphasis:&#123;</span><br><span class="line">                         	  shadowBlur:<span class="number">200</span>,</span><br><span class="line">                         	  shadowColor:<span class="string">"rgba(0,0,0,0.5)"</span></span><br><span class="line">                         &#125;</span><br><span class="line">           	      	  &#125;,</span><br><span class="line">           	      	  data:[</span><br><span class="line">                         &#123;<span class="attr">value</span>:<span class="number">235</span>,<span class="attr">name</span>:<span class="string">"视频广告"</span>&#125;,</span><br><span class="line">                         &#123;<span class="attr">value</span>:<span class="number">274</span>,<span class="attr">name</span>:<span class="string">"联盟广告"</span>&#125;,</span><br><span class="line">                         &#123;<span class="attr">value</span>:<span class="number">310</span>,<span class="attr">name</span>:<span class="string">"邮件营销"</span>&#125;,</span><br><span class="line">                         &#123;<span class="attr">value</span>:<span class="number">335</span>,<span class="attr">name</span>:<span class="string">"直接访问"</span>&#125;,</span><br><span class="line">                         &#123;<span class="attr">value</span>:<span class="number">400</span>,<span class="attr">name</span>:<span class="string">"搜索引擎"</span>&#125;</span><br><span class="line">           	      	  ]</span><br><span class="line">           	      &#125;],</span><br><span class="line">           	      background:<span class="string">"red"</span>,</span><br><span class="line">           	      label:&#123;</span><br><span class="line">           	      	  textStyle:&#123;</span><br><span class="line">           	      	      color:<span class="string">'rgba(255,255,255,0.3)'</span></span><br><span class="line">           	          &#125;</span><br><span class="line">           	      &#125;</span><br><span class="line">           &#125;)</span><br></pre></td></tr></table></figure>
+<p>得到结果</p>
+<p><img src="http://p46v4x0ng.bkt.clouddn.com/echarts.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/weixin.jpg" alt="Double wechat" style="width: 200px; max-width: 100%;"/>
+    <div>关注我的公众号，一起分享进步</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:20px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据可视化/" rel="tag"><i class="fa fa-tag"></i> 数据可视化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/24/离线应用和客户端缓存/" rel="next" title="<b>离线应用和客户端缓存</b>">
+                <i class="fa fa-chevron-left"></i> <b>离线应用和客户端缓存</b>
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/pic.jpg"
+                alt="Double" />
+            
+              <p class="site-author-name" itemprop="name">Double</p>
+              <p class="site-description motion-element" itemprop="description">becoming a life-long learner</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lilishuangshuang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/iDouble/" target="_blank" title="博客园">
+                      
+                        <i class="fa fa-fw fa-spinner"></i>博客园</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/feng-liu-shao-nian-36/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-edit"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#各个元素的配置"><span class="nav-number">1.</span> <span class="nav-text">各个元素的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本图表实例"><span class="nav-number">2.</span> <span class="nav-text">基本图表实例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Double</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共11.4k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("S6IedlRPag3XSGwG4LxvshoB-gzGzoHsz", "nfGMM4dVK965Gsr8mDYxl8ee");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
