@@ -1245,7 +1245,7 @@ pre .javascript .function {
 }
 .post-sticky-flag {
   display: inline-block;
-  font-size: 16px;
+  font-size: 18px;
   -ms-transform: rotate(30deg);
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -1815,7 +1815,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff6b7d;
+  background: #ffb396;
 }
 .links-of-blogroll {
   font-size: 13px;
