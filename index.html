@@ -301,7 +301,7 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -325,7 +325,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/26/CSS总结/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/04/26/CSS总结/" itemprop="url"><b>CSS常见用法</b></a></h1>
         
 
         <div class="post-meta">
@@ -348,6 +348,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -355,7 +377,7 @@
 
           
           
-             <span id="/2018/04/26/CSS总结/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2018/04/26/CSS总结/" class="leancloud_visitors" data-flag-title="<b>CSS常见用法</b>">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -381,7 +403,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  702字
+                  718字
                 </span>
               
 
@@ -407,25 +429,14 @@
 
       
         
-          
-            <h1 id="CSS总结"><a href="#CSS总结" class="headerlink" title="CSS总结"></a>CSS总结</h1><h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><h3 id="盒尺寸重置"><a href="#盒尺寸重置" class="headerlink" title="盒尺寸重置"></a>盒尺寸重置</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&#123;</span><br><span class="line">   <span class="attribute">box-sizing</span>:border-box;</span><br><span class="line">   <span class="attribute">-webkit-box-sizing</span>:border-box;</span><br><span class="line">   <span class="attribute">-moz-box-sizing</span>:border-box;</span><br><span class="line">&#125;</span><br><span class="line">*,</span><br><span class="line">*<span class="selector-pseudo">::before</span>,</span><br><span class="line">*<span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>:inherit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>w3c规定的盒子大小是不包括padding和border的，而ie是包含padding和border的css3中的box-sizing属性 content-box|border-box|inherit三种；</p>
-<p>设置border-box则盒子的width和height不受padding和border影响,相当于默认ie的方式</p>
-<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">   <span class="attribute">content</span>:<span class="string">''</span>;</span><br><span class="line">   <span class="attribute">diplay</span>:block;</span><br><span class="line">   <span class="attribute">clear</span>:both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.floated</span>&#123;</span><br><span class="line">   <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>现在一般用添加个伪元素的class，既不多余，又简单</p>
-<h2 id="截断文本"><a href="#截断文本" class="headerlink" title="截断文本"></a>截断文本</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.truncate-text</span>&#123;</span><br><span class="line">    overflow:hidden;             防止文本溢出</span><br><span class="line">    <span class="selector-tag">white-space</span><span class="selector-pseudo">:nowrap</span>;          防止文本高出一行</span><br><span class="line">    <span class="selector-tag">text-overflow</span><span class="selector-pseudo">:ellipsis</span>;      多余的省略号</span><br><span class="line">    <span class="selector-tag">width</span><span class="selector-pseudo">:200px</span>;                 设置盒子大小</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="视觉"><a href="#视觉" class="headerlink" title="视觉"></a>视觉</h2><h3 id="圆形"><a href="#圆形" class="headerlink" title="圆形"></a>圆形</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.circle</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#333</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>:<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="自定义文本选择"><a href="#自定义文本选择" class="headerlink" title="自定义文本选择"></a>自定义文本选择</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">::selection</span>&#123;</span><br><span class="line">   <span class="attribute">background</span>:blue;</span><br><span class="line">   <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="css三角形"><a href="#css三角形" class="headerlink" title="css三角形"></a>css三角形</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.triangle</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-top</span>:<span class="number">20px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">border-left</span>:<span class="number">20px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-right</span>:<span class="number">20px</span> solid transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://stackoverflow.com/questions/7073484/how-do-css-triangles-work#" target="_blank" rel="noopener">stackoverflow</a>讲解的十分清楚</p>
-<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><h3 id="弹跳加载中"><a href="#弹跳加载中" class="headerlink" title="弹跳加载中"></a>弹跳加载中</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> bounce-loader&#123;        自定义动画为调整透明度和上下移动 </span><br><span class="line">	    <span class="selector-tag">from</span> &#123;</span><br><span class="line">	    	 <span class="attribute">opacity</span>:<span class="number">1</span>;</span><br><span class="line">	    	 <span class="attribute">transform</span>:<span class="built_in">translateY</span>(0);</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="selector-tag">to</span> &#123;</span><br><span class="line">	    	<span class="attribute">opacity</span>:<span class="number">0.1</span>;</span><br><span class="line">	    	<span class="attribute">transform</span>:<span class="built_in">translateY</span>(-1rem);</span><br><span class="line">	    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.bounce-loader&#123;                  利用flex布局，居中对齐</span><br><span class="line">	   <span class="selector-tag">display</span><span class="selector-pseudo">:flex</span>;</span><br><span class="line">	   <span class="selector-tag">justify-content</span><span class="selector-pseudo">:center</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.bounce-loader</span> <span class="selector-tag">div</span>&#123;              </span><br><span class="line">	   <span class="attribute">width</span>:<span class="number">1rem</span>;</span><br><span class="line">	   <span class="attribute">height</span>:<span class="number">1rem</span>;</span><br><span class="line">	   <span class="attribute">margin</span>:<span class="number">3rem</span> <span class="number">0.2rem</span>;</span><br><span class="line">	   <span class="attribute">background</span>:<span class="number">#8385aa</span>;</span><br><span class="line">	   <span class="attribute">border-radius</span>:<span class="number">50%</span>;</span><br><span class="line">	   <span class="attribute">animation</span>:bounce-loader <span class="number">0.6s</span> infinite alternate;</span><br><span class="line">&#125;</span><br><span class="line">.bounce-loader div:nth-child(2)&#123;        动画延迟产生交错的效果</span><br><span class="line">	   <span class="selector-tag">animation-delay</span><span class="selector-pseudo">:.2s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.bounce-loader</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(3)</span>&#123;</span><br><span class="line">	   <span class="attribute">animation-delay</span>:.<span class="number">4s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="圆形转圈"><a href="#圆形转圈" class="headerlink" title="圆形转圈"></a>圆形转圈</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.spin</span>&#123;</span><br><span class="line"> 	   <span class="attribute">width</span>:<span class="number">30px</span>;</span><br><span class="line"> 	   <span class="attribute">height</span>:<span class="number">30px</span>;</span><br><span class="line"> 	   <span class="attribute">border</span>:<span class="number">4px</span> solid <span class="built_in">rgba</span>(0,0,0,0.1);</span><br><span class="line"> 	   <span class="attribute">border-radius</span>:<span class="number">50%</span>;</span><br><span class="line"> 	   <span class="attribute">border-left-color</span>:<span class="number">#7983ff</span>;</span><br><span class="line"> 	   <span class="attribute">animation</span>:spin <span class="number">1.2s</span> linear infinite;</span><br><span class="line"> &#125;</span><br><span class="line"> @<span class="keyword">keyframes</span> spin&#123;                     <span class="selector-tag">rotate</span>直接转圈</span><br><span class="line"> 	   0% &#123;</span><br><span class="line">         <span class="attribute">transform</span>:<span class="built_in">rotate</span>(0deg);</span><br><span class="line"> 	   &#125;</span><br><span class="line"> 	   100% &#123;</span><br><span class="line"> 	   	   <span class="attribute">transform</span>:<span class="built_in">rotate</span>(360deg);</span><br><span class="line"> 	   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="悬停下划线效果"><a href="#悬停下划线效果" class="headerlink" title="悬停下划线效果"></a>悬停下划线效果</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.underlines</span>&#123;</span><br><span class="line">	   <span class="attribute">color</span>:green;</span><br><span class="line">	   <span class="attribute">background</span>:<span class="number">#ccc</span>;</span><br><span class="line">	   <span class="attribute">position</span>:relative;</span><br><span class="line">	   <span class="attribute">display</span>:inline-block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.underlines</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">	   <span class="attribute">content</span>:<span class="string">''</span>;</span><br><span class="line">	   <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">	   <span class="attribute">height</span>:<span class="number">2px</span>;</span><br><span class="line">	   position:absolute;                 通过定位放置到底部</span><br><span class="line">	   <span class="selector-tag">bottom</span><span class="selector-pseudo">:0</span>;</span><br><span class="line">	   <span class="selector-tag">left</span><span class="selector-pseudo">:0</span>;</span><br><span class="line">	   <span class="selector-tag">background</span><span class="selector-pseudo">:red</span>;</span><br><span class="line">	   <span class="selector-tag">transform</span><span class="selector-pseudo">:scale(0)</span>;                开始看不见</span><br><span class="line">	   <span class="selector-tag">transform-origin</span><span class="selector-pseudo">:bottom</span> <span class="selector-tag">right</span>;     通过动画解决变换的锚点</span><br><span class="line">	   <span class="selector-tag">transition</span><span class="selector-pseudo">:transform</span> 1<span class="selector-tag">s</span> <span class="selector-tag">ease-out</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.underlines</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">	   transform:scale(1);                触发时看见</span><br><span class="line">	   <span class="selector-tag">transform-origin</span><span class="selector-pseudo">:bottom</span> <span class="selector-tag">left</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="互动"><a href="#互动" class="headerlink" title="互动"></a>互动</h2><h3 id="禁止选择"><a href="#禁止选择" class="headerlink" title="禁止选择"></a>禁止选择</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.unselectable</span>&#123;</span><br><span class="line">     user-select:none;            指定无法选择的文本，不是防止复制的安全方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="非选择器用法"><a href="#非选择器用法" class="headerlink" title="非选择器用法"></a>非选择器用法</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">	  <span class="attribute">list-style</span>:none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">	  <span class="attribute">width</span>:<span class="number">50px</span>;</span><br><span class="line">	  <span class="attribute">height</span>:<span class="number">20px</span>;</span><br><span class="line">	  <span class="attribute">background</span>:pink;</span><br><span class="line">	  <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br><span class="line">ul li:not(:last-child)&#123;               直接性的利用非选择器</span><br><span class="line">	 <span class="selector-tag">border-right</span><span class="selector-pseudo">:2px</span> <span class="selector-tag">solid</span> <span class="selector-tag">red</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="同级变淡"><a href="#同级变淡" class="headerlink" title="同级变淡"></a>同级变淡</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">	  <span class="attribute">width</span>:<span class="number">50px</span>;</span><br><span class="line">	  <span class="attribute">height</span>:<span class="number">20px</span>;</span><br><span class="line">	  <span class="attribute">background</span>:pink;</span><br><span class="line">	  <span class="attribute">float</span>:left;</span><br><span class="line">   <span class="attribute">transition</span>:opacity <span class="number">0.2</span>;</span><br><span class="line">&#125;</span><br><span class="line">ul:hover li:not(:hover)&#123;     在父级上做文章，利用非选择器，排除当 li</span><br><span class="line">	 <span class="selector-tag">opacity</span><span class="selector-pseudo">:0.5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+          <p>本文集合常见的css属性的具体用法，持续更新……<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/26/CSS总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1252,7 +1263,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1262,8 +1273,8 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                <a href="/tags/index-1.html">
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
