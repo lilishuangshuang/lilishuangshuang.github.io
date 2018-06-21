@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="Double">
 <meta property="og:description" content="css3的新属性让人兴奋不已，随着浏览器兼容性的更加完善，许许多多的css3效果有可行性，本篇blog具体总结各种各样的动画效果">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-30T10:56:01.977Z">
+<meta property="og:updated_time" content="2018-05-01T14:49:52.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&lt;b&gt;css3各种动画总结&lt;&#x2F;b&gt;">
 <meta name="twitter:description" content="css3的新属性让人兴奋不已，随着浏览器兼容性的更加完善，许许多多的css3效果有可行性，本篇blog具体总结各种各样的动画效果">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  52字
+                  444字
                 </span>
               
 
@@ -428,7 +428,13 @@
 
       
         <p>css3的新属性让人兴奋不已，随着浏览器兼容性的更加完善，许许多多的css3效果有可行性，本篇blog具体总结各种各样的动画效果<br><a id="more"></a></p>
-<p>## </p>
+<h3 id="转动"><a href="#转动" class="headerlink" title="转动"></a>转动</h3><p>css3动画很容易做出转动的效果，当然常见的有圆形转动，圆环转动，1/4圆的转动；当然，这些形形色色都是其次，关键是转动</p>
+<p>解决转动：通常使用的是animation和keyframes关键帧的方式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.animate-one</span>&#123;</span><br><span class="line">	   <span class="attribute">width</span>:<span class="number">10em</span>;</span><br><span class="line">	   <span class="attribute">height</span>:<span class="number">10em</span>;</span><br><span class="line">	   <span class="attribute">border</span>:<span class="number">1em</span> solid pink;</span><br><span class="line">	   <span class="attribute">border-radius</span>:<span class="number">50%</span>;</span><br><span class="line">	   <span class="attribute">border-left-color</span>:green;</span><br><span class="line">	   <span class="attribute">animation</span>:spin <span class="number">1.2s</span> linear infinite;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> spin&#123;</span><br><span class="line">	   0% &#123;</span><br><span class="line">	   	   <span class="attribute">transform</span>:<span class="built_in">rotate</span>(0deg);</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	   100% &#123;</span><br><span class="line">	   	   <span class="attribute">transform</span>:<span class="built_in">rotate</span>(360deg);</span><br><span class="line">	   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果地址<a href="https://codepen.io/lishuangshuang/pen/qYrBgd" target="_blank" rel="noopener">codepen</a></p>
+<h3 id="360效果"><a href="#360效果" class="headerlink" title="360效果"></a>360效果</h3><p>所谓的360效果，说的就是加载动画，在AE中很容易实现，用css3实现，具体看思路</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">html中包含两个div平均分割了这个div</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"animate-two"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper right"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"progress rightcircle"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper left"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"progress leftcircle"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">  <span class="selector-class">.animate-two</span>&#123;</span><br><span class="line"> 	  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line"> 	  <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line"> 	  <span class="attribute">background</span>:pink;</span><br><span class="line"> 	  <span class="attribute">position</span>: relative;</span><br><span class="line"> &#125; </span><br><span class="line"> <span class="selector-class">.wrapper</span>&#123;              <span class="comment">/* 两个div分别分割大div*/</span></span><br><span class="line"> 	  <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line"> 	  <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">overflow</span>:hidden;    <span class="comment">/* 溢出部分把它隐藏掉即可*/</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-class">.right</span>&#123;</span><br><span class="line"> 	  <span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-class">.left</span>&#123;</span><br><span class="line"> 	  <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-class">.progress</span>&#123;</span><br><span class="line"> 	  <span class="attribute">width</span>:<span class="number">160px</span>;</span><br><span class="line"> 	  <span class="attribute">height</span>:<span class="number">160px</span>;</span><br><span class="line"> 	  <span class="attribute">border</span>:<span class="number">20px</span> solid red;</span><br><span class="line"> 	  <span class="attribute">border-radius</span>:<span class="number">50%</span>;</span><br><span class="line"> 	  <span class="attribute">position</span>:absolute;</span><br><span class="line"> 	  <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line"> 	  <span class="attribute">transform</span>:<span class="built_in">rotate</span>(45deg);   <span class="comment">/* 旋转让半圆放 正 */</span></span><br><span class="line"> &#125;</span><br><span class="line">    <span class="selector-class">.rightcircle</span>&#123;</span><br><span class="line"> 	  <span class="attribute">border-top</span>:<span class="number">20px</span> solid green;</span><br><span class="line"> 	  <span class="attribute">border-right</span>:<span class="number">20px</span> solid green;</span><br><span class="line"> 	  <span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line"> 	  <span class="attribute">animation</span>:rightcircle <span class="number">5s</span> linear infinite;</span><br><span class="line"> &#125;  </span><br><span class="line">    <span class="selector-class">.leftcircle</span>&#123;</span><br><span class="line"> <span class="attribute">border-bottom</span>:<span class="number">20px</span> solid green;</span><br><span class="line"> <span class="attribute">border-left</span>:<span class="number">20px</span> solid green;</span><br><span class="line"> <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line"> <span class="attribute">animation</span>:leftcircle <span class="number">5s</span> linear infinite;</span><br><span class="line">&#125;    </span><br><span class="line">   @<span class="keyword">keyframes</span> rightcircle &#123;</span><br><span class="line"> 0% &#123;</span><br><span class="line"> 	  <span class="attribute">transform</span>:<span class="built_in">rotate</span>(45deg)</span><br><span class="line"> &#125;</span><br><span class="line"> 50%,100%&#123;</span><br><span class="line"> 	  <span class="attribute">transform</span>:<span class="built_in">rotate</span>(225deg);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;  </span><br><span class="line">  @<span class="keyword">keyframes</span> leftcircle &#123;</span><br><span class="line"> 0%,50% &#123;</span><br><span class="line"> 	  <span class="attribute">transform</span>:<span class="built_in">rotate</span>(45deg)</span><br><span class="line"> &#125;</span><br><span class="line"> 100%&#123;</span><br><span class="line"> 	  <span class="attribute">transform</span>:<span class="built_in">rotate</span>(225deg);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>### </p>
 
       
@@ -488,6 +494,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/06/21/AE插件之Particular/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -538,8 +548,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -632,6 +651,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#转动"><span class="nav-number">1.</span> <span class="nav-text">转动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#360效果"><span class="nav-number">2.</span> <span class="nav-text">360效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -678,7 +713,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18.7k字</span>
+  <span class="post-count">博客全站共19.1k字</span>
 </div>
         
 
