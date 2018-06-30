@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="Double">
 <meta property="og:description" content="各种各样的AE表达式，轻松解决">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-28T14:36:36.992Z">
+<meta property="og:updated_time" content="2018-06-30T03:31:58.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&lt;b&gt;AE表达式具体分析&lt;&#x2F;b&gt;">
 <meta name="twitter:description" content="各种各样的AE表达式，轻松解决">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  13字
+                  597字
                 </span>
               
 
@@ -428,6 +428,37 @@
 
       
         <p>各种各样的AE表达式，轻松解决<br><a id="more"></a></p>
+<h3 id="ae表达式"><a href="#ae表达式" class="headerlink" title="ae表达式"></a>ae表达式</h3><p>ee显示表达式</p>
+<p>常用表达式</p>
+<p><strong>value </strong> 属性数值的灵活控制  value  [0/1/2……]</p>
+<p><strong>layer index</strong>  用于图层之间的表达式关联 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = thisComp.layer(index+<span class="number">1</span>).transform.position[<span class="number">0</span>]+<span class="number">300</span>; </span><br><span class="line">[x,value[<span class="number">1</span>]]</span><br><span class="line"><span class="comment">// 第二个图层的变化位置的横坐标加300，最后输出位置为x和原来的y轴数值</span></span><br></pre></td></tr></table></figure>
+<p>使用ctrl+d将该图层复制多个，因为新复制的图层序号默认为排在首位，所以新出现的图层始终以300的间距向右排列。</p>
+<p><strong>time </strong> 通过获取时间轴时间变动，将动画赋予属性值；比如time用于旋转则每秒n角度，还可以运用到不透明度，位置，缩放等等</p>
+<p><strong>valueAtTime</strong> 对动画播放时间实现精准控制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">thisComp.layer(index+1).transform.scale.valueAtTime(time-0.5)</span><br></pre></td></tr></table></figure>
+<p><strong>sourceRectAtTime</strong> 通过获取图层内容块宽高的即时变化，将数值赋予其他属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x=thisComp.layer(&quot;cinemawk&quot;).sourceRectAtTime().width;</span><br><span class="line">[x,value[1]]</span><br></pre></td></tr></table></figure>
+<p><strong>loopin loopout</strong> 关键帧动画循环</p>
+<p>一般情况下直接loopOut从开始帧到结束帧的循环；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">loopOut(type=<span class="string">"circle"</span>,numKeyframes=<span class="number">0</span>)</span><br><span class="line">type=<span class="string">"pingpong"</span>  <span class="comment">// 循环的类型</span></span><br><span class="line">numKeyframes=<span class="number">1</span>   <span class="comment">// 从第几帧循环</span></span><br></pre></td></tr></table></figure>
+<p><strong>linear ease</strong> 动画插值转换计算方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linear(t, tMin, tMax, value1, value2)</span><br></pre></td></tr></table></figure>
+<p>这个表达式无法直接使用，需要定义相应的值。</p>
+<p>t：需要绑定的对象的属性值，直接可以使用拉索工具链接到控制按钮的Y值属性上。</p>
+<p>tmin&amp;tmax：定义属性大小值范围，也就是按钮Y值在滑杆两个端点位置Y的值。</p>
+<p>value1&amp;value2：定义转换属性的变动值，也就是本案例中该圆旋转的角度范围。</p>
+<p><strong>wiggle</strong> 随机晃动摇摆 wiggle(频率，幅度)</p>
+<h3 id="表达式控制"><a href="#表达式控制" class="headerlink" title="表达式控制"></a>表达式控制</h3><p><strong>滑块控制 </strong> 可以结合3d图层控制住几个直接的间隔距离</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=thisComp.layer(<span class="string">"空 1"</span>).effect(<span class="string">"滑块控制"</span>)(<span class="string">"滑块"</span>)</span><br><span class="line">value+[<span class="number">0</span>,<span class="number">0</span>,index*a]</span><br></pre></td></tr></table></figure>
+<p><strong>点控制</strong> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp = thisComp.layer(<span class="string">"空 1"</span>).effect(<span class="string">"点控制"</span>)(<span class="string">"点"</span>);</span><br><span class="line">[temp[<span class="number">0</span>], temp[<span class="number">1</span>], temp[<span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
+<p><strong>角度控制</strong></p>
+<p><strong>颜色控制 </strong></p>
+<p><strong>复选框控制 </strong> 0或者1</p>
+<p><strong>图层控制 </strong> 了解几个图层间的位置等其他属性</p>
+<p>表达式控制十分强大</p>
+<p>利用时间，冻结帧可直接换用序列素材，对于复杂动效，无需一个一个替换素材</p>
 
       
     </div>
@@ -476,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/25/AE-笔记/" rel="next" title="<b>AE 基础笔记</b>">
-                <i class="fa fa-chevron-left"></i> <b>AE 基础笔记</b>
+              <a href="/2018/06/21/AE插件之Particular/" rel="next" title="<b>AE插件之Particular</b>">
+                <i class="fa fa-chevron-left"></i> <b>AE插件之Particular</b>
               </a>
             
           </div>
@@ -536,8 +567,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -577,7 +617,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
+                <a href="/tags/index-1.html">
                   <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -630,6 +670,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ae表达式"><span class="nav-number">1.</span> <span class="nav-text">ae表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式控制"><span class="nav-number">2.</span> <span class="nav-text">表达式控制</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -676,7 +732,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共21.7k字</span>
+  <span class="post-count">博客全站共22.1k字</span>
 </div>
         
 
